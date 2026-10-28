@@ -1,0 +1,4 @@
+{"name":"abba-karas-choir","version":"2.0.0","private":true,
+"scripts":{"build":"esbuild src/main.js --bundle --minify --outfile=www/app.js"},
+"dependencies":{"@capacitor/android":"^6.2.0","@capacitor/core":"^6.2.0","@capacitor/local-notifications":"^6.1.0","firebase":"^10.14.0","html5-qrcode":"^2.3.8","qrcode":"^1.5.4"},
+"devDependencies":{"@capacitor/assets":"^3.0.5","@capacitor/cli":"^6.2.0","esbuild":"^0.24.0"}}

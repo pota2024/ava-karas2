@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function userPath() { return /databases/$(database)/documents/users/$(request.auth.uid); }
+    function userDoc() { return get(userPath()); }
+    function hasUser() { return signedIn() && exists(userPath()); }
+    function isServant() { return hasUser() && userDoc().data.role == 'servant'; }
+    function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || isServant());
+      // دور الخادم لا يُمنح من التطبيق؛ تمنحه Cloud Function فقط.
+      allow create: if signedIn() && request.auth.uid == userId
+                    && request.resource.data.role == 'member'
+                    && request.resource.data.memberId is string;
+      allow update: if signedIn() && request.auth.uid == userId
+                    && changed().hasOnly(['name', 'contact', 'phone']);
+      allow delete: if isServant();
+    }
+
+    match /members/{memberId} {
+      allow read: if signedIn();
+      allow create: if isServant() || (signedIn()
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.points == 0
+                    && request.resource.data.attended == 0);
+      // يحتاج التطبيق لتحديث النقاط بعد تسجيل الحضور؛ نقل هذه العملية إلى Cloud Function هو الأفضل أمنيًا.
+      allow update: if isServant() || (signedIn()
+                    && resource.data.uid == request.auth.uid
+                    && changed().hasOnly(['photo', 'phone', 'birth', 'name', 'points', 'attended']));
+      allow delete: if isServant();
+    }
+
+    match /events/{eventId} {
+      allow read: if signedIn();
+      allow create, update, delete: if isServant();
+    }
+
+    match /attendance/{attendanceId} {
+      allow read: if signedIn() && (isServant() || (hasUser() && resource.data.memberId == userDoc().data.memberId));
+      allow create: if isServant() || (signedIn()
+        && request.resource.data.memberId is string
+        && exists(/databases/$(database)/documents/members/$(request.resource.data.memberId))
+        && get(/databases/$(database)/documents/members/$(request.resource.data.memberId)).data.uid == request.auth.uid);
+      allow update, delete: if isServant();
+    }
+
+    match /notifs/{notificationId} {
+      allow read: if signedIn() && (isServant() || (hasUser() &&
+        (resource.data.to == userDoc().data.memberId
+         || resource.data.to == 'all'
+         || (exists(/databases/$(database)/documents/members/$(userDoc().data.memberId))
+             && resource.data.to == get(/databases/$(database)/documents/members/$(userDoc().data.memberId)).data.choir))));
+      allow create, update, delete: if isServant();
+    }
+
+    match /config/{configId} {
+      allow read: if signedIn();
+      allow write: if isServant();
+    }
+  }
+}
