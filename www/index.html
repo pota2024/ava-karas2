@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#0b1b3f"><title>كورال الأنبا كاراس</title>
+<style>
+:root{--n:#0b1b3f;--n2:#16346e;--g:#e3b85a;--r:#9a1d3d;--t:#f8f1de;--s:#b9c3dd;--ok:#4cc38a;--no:#ff6b81;--wa:#f0a53a;--gl:rgba(10,25,60,.68)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}body{background:var(--n);color:var(--t);font-family:Tahoma,system-ui,sans-serif;min-height:100vh;padding:calc(env(safe-area-inset-top) + 8px) 0 92px;font-size:15px}
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,#071230 0%,#102a5c 45%,#2b3f7a 75%,#8a5a3c 100%)}
+#sky:before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 30% 8%,#fff,transparent),radial-gradient(1.5px 1.5px at 55% 22%,#ffe9a8,transparent),radial-gradient(1px 1px at 72% 12%,#fff,transparent),radial-gradient(1.5px 1.5px at 88% 28%,#fff,transparent),radial-gradient(1px 1px at 20% 38%,#fff,transparent),radial-gradient(1px 1px at 65% 42%,#ffe9a8,transparent),radial-gradient(1.5px 1.5px at 92% 8%,#fff,transparent),radial-gradient(1px 1px at 42% 30%,#fff,transparent);opacity:.85;animation:tw 6s ease-in-out infinite alternate}
+#sky:after{content:"✠";position:absolute;top:2%;left:50%;transform:translateX(-50%);font-size:150px;color:var(--g);opacity:.08;line-height:1}
+#sky .incense{position:absolute;bottom:-24%;width:45%;height:75%;border-radius:50%;filter:blur(32px);opacity:.22;background:radial-gradient(ellipse at 50% 80%,#f6e7cf88 0%,#d9d2e855 28%,transparent 72%);animation:incense 19s ease-in-out infinite alternate}
+#sky .incense.one{left:4%;animation-delay:-7s}#sky .incense.two{right:2%;animation-delay:-2s}
+@keyframes incense{from{transform:translate3d(-8px,0,0) scale(.85);opacity:.12}to{transform:translate3d(28px,-25vh,0) scale(1.25);opacity:.3}}
+.glow{position:absolute;bottom:-18%;left:50%;width:140%;height:50%;transform:translateX(-50%);background:radial-gradient(ellipse at center,#e3b85a66,transparent 65%)}
+.sm{position:absolute;bottom:-160px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,#fff3d633,transparent 68%);filter:blur(16px);animation:rise 22s linear infinite}
+@keyframes rise{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:.9}100%{transform:translate(60px,-115vh) scale(2.3);opacity:0}}
+@keyframes tw{from{opacity:.55}to{opacity:.95}}
+#app{position:relative;z-index:1;max-width:600px;margin:auto;padding:10px 14px}
+.card{background:var(--gl);backdrop-filter:blur(8px);border:1px solid #e3b85a40;border-radius:18px;padding:14px;margin-bottom:12px}
+h2{margin:6px 0 12px;font-size:22px}h3{margin:0 0 10px;font-size:15px;color:var(--g)}.s{color:var(--s);font-size:13px}
+.row{display:flex;align-items:center;gap:10px}.sp{justify-content:space-between}.w{flex-wrap:wrap}
+.btn{border:0;border-radius:13px;padding:12px 16px;font:inherit;font-weight:bold;color:#fff;background:var(--r);width:100%}
+.btn.g{background:linear-gradient(135deg,#f3d27a,#c9942c);color:#2a1a00}.btn.o{background:transparent;border:1.5px solid #e3b85a77;color:var(--g)}.btn.no{background:var(--no)}.btn.sm{width:auto;padding:8px 12px;font-size:13px}
+input,select,textarea{width:100%;font:inherit;background:#071230cc;color:var(--t);border:1.5px solid #e3b85a40;border-radius:12px;padding:11px;margin-bottom:9px}
+label{display:block;font-size:12px;color:var(--s);margin:2px 0 4px}
+.pill{display:inline-block;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:bold;color:#fff}.ok{background:var(--ok);color:#052}.no{background:var(--no)}.wa{background:var(--wa);color:#2a1a00}.gray{background:#667}
+.hero{background:linear-gradient(135deg,#9a1d3dcc,#4d0c1fcc);border-color:#e3b85a80}.pts{font-size:50px;font-weight:900;line-height:1;color:var(--g)}
+.vb{text-align:center;font-size:17px;line-height:1.9;min-height:96px;display:flex;flex-direction:column;justify-content:center;transition:opacity .6s}.vb small{color:var(--g);margin-top:4px}
+.li{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #ffffff12}.li:last-child{border:0}
+.av{width:42px;height:42px;border-radius:50%;background:var(--r);display:grid;place-items:center;font-weight:bold;overflow:hidden;flex:none;border:2px solid var(--g)}.av img{width:100%;height:100%;object-fit:cover}
+.bar{height:8px;background:#071230;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),var(--ok))}
+.chips{display:flex;gap:8px;overflow:auto;margin-bottom:12px}.chips button{flex:none;border:1.5px solid #e3b85a55;background:transparent;color:var(--t);border-radius:20px;padding:7px 14px;font:inherit;font-size:13px}.chips .on{background:var(--g);color:#2a1a00;font-weight:bold}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#071230f2;border-top:2px solid var(--g);padding-bottom:env(safe-area-inset-bottom);z-index:6}
+nav button{flex:1;background:none;border:0;color:var(--s);padding:9px 0 7px;font:inherit;font-size:11px;position:relative}nav button i{display:block;font-style:normal;font-size:20px}nav button.on{color:var(--g)}nav b{position:absolute;top:4px;right:22%;background:var(--no);color:#fff;border-radius:10px;font-size:10px;padding:1px 5px}
+#md{position:fixed;inset:0;background:#000b;z-index:10;display:none;align-items:flex-end}#md>div{background:#0e2250;width:100%;max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:16px;border-top:3px solid var(--g);max-width:600px;margin:auto}
+#scan{position:fixed;inset:0;background:#000;z-index:20;display:none;flex-direction:column;padding:20px;gap:14px;align-items:center;justify-content:center}#rd{width:100%;max-width:420px;border-radius:20px;overflow:hidden}
+#toast{position:fixed;top:18px;left:50%;transform:translate(-50%,-140px);padding:13px 22px;border-radius:30px;font-weight:bold;z-index:30;transition:.4s;max-width:92%;text-align:center}#toast.show{transform:translate(-50%,0)}#toast.ok{background:var(--ok);color:#052}#toast.bad{background:var(--no)}
+.qr{background:#fff;border-radius:16px;padding:10px;display:block;margin:10px auto;width:230px}.logo{width:130px;height:130px;border-radius:50%;border:3px solid var(--g);display:block;margin:20px auto 10px;background:#fff}
+</style></head><body>
+<div id="sky"><div class="glow"></div><i class="incense one"></i><i class="incense two"></i><i class="sm" style="left:8%;animation-delay:0s"></i><i class="sm" style="left:30%;animation-delay:6s"></i><i class="sm" style="left:52%;animation-delay:12s"></i><i class="sm" style="left:72%;animation-delay:3s"></i><i class="sm" style="left:88%;animation-delay:15s"></i></div>
+<div id="app"></div><nav id="nav"></nav><div id="md" onclick="if(event.target===this)cm()"><div id="mb"></div></div>
+<div id="scan"><div id="rd"></div><button class="btn o" style="max-width:420px" onclick="stopScan()">إلغاء</button></div><div id="toast"></div>
+<script src="app.js"></script></body></html>
